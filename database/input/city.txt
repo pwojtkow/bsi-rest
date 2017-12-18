@@ -1,0 +1,6 @@
+City_id,City_name
+1,Wroclaw
+2,Radom
+3,Rzeszow
+4,Sanok
+5,Lublin
