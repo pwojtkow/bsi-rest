@@ -1,4 +1,4 @@
-package pwr.bsi.rest.entities;
+package pwr.bsi.database.entities;
 
 import javax.persistence.*;
 

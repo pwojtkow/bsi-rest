@@ -1,10 +1,10 @@
-package pwr.bsi.rest.dao;
+package pwr.bsi.database.dao;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -13,13 +13,11 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 @Transactional
-public abstract class AbstractDao<T, K extends Serializable> implements IDao<T, K> {
+@Repository
+public abstract class AbstractDao<T, K extends Serializable> implements IDao<T,K> {
 
-    protected EntityManager entityManager;
-
-    public AbstractDao(EntityManagerFactory emf) {
-        entityManager = emf.createEntityManager();
-    }
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private Class<T> domainClass;
 

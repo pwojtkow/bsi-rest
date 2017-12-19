@@ -1,4 +1,4 @@
-package pwr.bsi.rest.dao;
+package pwr.bsi.database.dao;
 
 import java.io.Serializable;
 import java.util.List;
