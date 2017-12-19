@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Arrays;
 
 @Entity
-@Table(name = "EVENT", schema = "eventsDevDB", catalog = "")
+@Table(name = "event", schema = "eventsDevDB", catalog = "")
 public class EventEntity {
     private int eventId;
     private String eventName;

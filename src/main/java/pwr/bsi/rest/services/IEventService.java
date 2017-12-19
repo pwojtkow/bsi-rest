@@ -7,7 +7,7 @@ import java.util.List;
 public interface IEventService {
 
     List<EventEntity> getAllEvents();
-    EventEntity getOne(Long id);
+    EventEntity getOne(Integer id);
     //TODO: Add additional features
 
 }

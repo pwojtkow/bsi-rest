@@ -20,7 +20,7 @@ USE `eventsDevDB` ;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`ACCOUNT_TYPE`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`ACCOUNT_TYPE` ;
+DROP TABLE IF EXISTS `eventsDevDB`.account_type ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`ACCOUNT_TYPE` (
   `Account_type_id` INT NOT NULL,
@@ -33,7 +33,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`CITY`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`CITY` ;
+DROP TABLE IF EXISTS `eventsDevDB`.city ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`CITY` (
   `City_id` INT NOT NULL,
@@ -46,7 +46,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`USER`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`USER` ;
+DROP TABLE IF EXISTS `eventsDevDB`.user ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`USER` (
   `User_id` INT NOT NULL,
@@ -63,12 +63,12 @@ CREATE TABLE IF NOT EXISTS `eventsDevDB`.`USER` (
   INDEX `fk_User_ACCOUNT_TYPE1_idx` (`Account_type_id` ASC),
   CONSTRAINT `fk_User_City1`
     FOREIGN KEY (`City_id`)
-    REFERENCES `eventsDevDB`.`CITY` (`City_id`)
+    REFERENCES `eventsDevDB`.city (`City_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_User_ACCOUNT_TYPE1`
     FOREIGN KEY (`Account_type_id`)
-    REFERENCES `eventsDevDB`.`ACCOUNT_TYPE` (`Account_type_id`)
+    REFERENCES `eventsDevDB`.account_type (`Account_type_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -77,7 +77,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`EVENT`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`EVENT` ;
+DROP TABLE IF EXISTS `eventsDevDB`.event ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`EVENT` (
   `Event_id` INT NOT NULL,
@@ -96,7 +96,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`CITY_has_EVENT`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`CITY_has_EVENT` ;
+DROP TABLE IF EXISTS `eventsDevDB`.city_has_event ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`CITY_has_EVENT` (
   `City_has_event_id` INT NOT NULL,
@@ -107,12 +107,12 @@ CREATE TABLE IF NOT EXISTS `eventsDevDB`.`CITY_has_EVENT` (
   INDEX `fk_CITY_has_EVENT_CITY1_idx` (`City_id` ASC),
   CONSTRAINT `fk_CITY_has_EVENT_CITY1`
     FOREIGN KEY (`City_id`)
-    REFERENCES `eventsDevDB`.`CITY` (`City_id`)
+    REFERENCES `eventsDevDB`.city (`City_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_CITY_has_EVENT_EVENT1`
     FOREIGN KEY (`Event_id`)
-    REFERENCES `eventsDevDB`.`EVENT` (`Event_id`)
+    REFERENCES `eventsDevDB`.event (`Event_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -121,7 +121,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`BLOCKED_STREET`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`BLOCKED_STREET` ;
+DROP TABLE IF EXISTS `eventsDevDB`.blocked_street ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`BLOCKED_STREET` (
   `Blocked_street_id` INT NOT NULL,
@@ -132,7 +132,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`EVENT_has_BLOCKED_STREET`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`EVENT_has_BLOCKED_STREET` ;
+DROP TABLE IF EXISTS `eventsDevDB`.event_has_blocked_street ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`EVENT_has_BLOCKED_STREET` (
   `Event_has_blocked_street_id` INT NOT NULL,
@@ -143,12 +143,12 @@ CREATE TABLE IF NOT EXISTS `eventsDevDB`.`EVENT_has_BLOCKED_STREET` (
   INDEX `fk_EVENT_has_BLOCKED_STREET_EVENT1_idx` (`Event_id` ASC),
   CONSTRAINT `fk_EVENT_has_BLOCKED_STREET_EVENT1`
     FOREIGN KEY (`Event_id`)
-    REFERENCES `eventsDevDB`.`EVENT` (`Event_id`)
+    REFERENCES `eventsDevDB`.event (`Event_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_EVENT_has_BLOCKED_STREET_BLOCKED_STREET1`
     FOREIGN KEY (`Blocked_street_id`)
-    REFERENCES `eventsDevDB`.`BLOCKED_STREET` (`Blocked_street_id`)
+    REFERENCES `eventsDevDB`.blocked_street (`Blocked_street_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -157,7 +157,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`SERVICE_TYPE`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`SERVICE_TYPE` ;
+DROP TABLE IF EXISTS `eventsDevDB`.service_type ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`SERVICE_TYPE` (
   `Service_type_id` INT NOT NULL,
@@ -169,7 +169,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`SERVICE`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`SERVICE` ;
+DROP TABLE IF EXISTS `eventsDevDB`.service ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`SERVICE` (
   `Service_id` INT NOT NULL,
@@ -180,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `eventsDevDB`.`SERVICE` (
   INDEX `fk_SERVICE_SERVICE_TYPE1_idx` (`Service_type_id` ASC),
   CONSTRAINT `fk_SERVICE_SERVICE_TYPE1`
     FOREIGN KEY (`Service_type_id`)
-    REFERENCES `eventsDevDB`.`SERVICE_TYPE` (`Service_type_id`)
+    REFERENCES `eventsDevDB`.service_type (`Service_type_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -189,7 +189,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`EVENT_has_SERVICE`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`EVENT_has_SERVICE` ;
+DROP TABLE IF EXISTS `eventsDevDB`.event_has_service ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`EVENT_has_SERVICE` (
   `Event_has_service_id` INT NOT NULL,
@@ -200,12 +200,12 @@ CREATE TABLE IF NOT EXISTS `eventsDevDB`.`EVENT_has_SERVICE` (
   INDEX `fk_EVENT_has_SERVICE_EVENT1_idx` (`Event_id` ASC),
   CONSTRAINT `fk_EVENT_has_SERVICE_EVENT1`
     FOREIGN KEY (`Event_id`)
-    REFERENCES `eventsDevDB`.`EVENT` (`Event_id`)
+    REFERENCES `eventsDevDB`.event (`Event_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_EVENT_has_SERVICE_SERVICE1`
     FOREIGN KEY (`Service_id`)
-    REFERENCES `eventsDevDB`.`SERVICE` (`Service_id`)
+    REFERENCES `eventsDevDB`.service (`Service_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -214,7 +214,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `eventsDevDB`.`USER_has_EVENT`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `eventsDevDB`.`USER_has_EVENT` ;
+DROP TABLE IF EXISTS `eventsDevDB`.user_has_event ;
 
 CREATE TABLE IF NOT EXISTS `eventsDevDB`.`USER_has_EVENT` (
   `User_has_event_id` INT NOT NULL,
@@ -225,12 +225,12 @@ CREATE TABLE IF NOT EXISTS `eventsDevDB`.`USER_has_EVENT` (
   PRIMARY KEY (`User_has_event_id`),
   CONSTRAINT `fk_USER_has_EVENT_USER1`
     FOREIGN KEY (`USER_User_id`)
-    REFERENCES `eventsDevDB`.`USER` (`User_id`)
+    REFERENCES `eventsDevDB`.user (`User_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_USER_has_EVENT_EVENT1`
     FOREIGN KEY (`EVENT_Event_id`)
-    REFERENCES `eventsDevDB`.`EVENT` (`Event_id`)
+    REFERENCES `eventsDevDB`.event (`Event_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
