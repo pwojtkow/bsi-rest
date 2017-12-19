@@ -16,6 +16,8 @@ import java.util.List;
 @RequestMapping(path = "/events")
 public class EventsController {
 
+    //TODO:SQL injection secure need to be added
+
     @Autowired
     private EventService service;
 
