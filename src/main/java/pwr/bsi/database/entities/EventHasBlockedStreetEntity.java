@@ -1,14 +1,13 @@
 package pwr.bsi.database.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "EVENT_has_BLOCKED_STREET", schema = "eventsDevDB", catalog = "")
+@Table(name = "event_has_blocked_street", schema = "eventsdevdb", catalog = "")
 public class EventHasBlockedStreetEntity {
     private int eventHasBlockedStreetId;
+    private int eventId;
+    private int blockedStreetId;
 
     @Id
     @Column(name = "Event_has_blocked_street_id", nullable = false)
@@ -20,6 +19,26 @@ public class EventHasBlockedStreetEntity {
         this.eventHasBlockedStreetId = eventHasBlockedStreetId;
     }
 
+    @Basic
+    @Column(name = "Event_id", nullable = false)
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+
+    @Basic
+    @Column(name = "Blocked_street_id", nullable = false)
+    public int getBlockedStreetId() {
+        return blockedStreetId;
+    }
+
+    public void setBlockedStreetId(int blockedStreetId) {
+        this.blockedStreetId = blockedStreetId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -28,12 +47,17 @@ public class EventHasBlockedStreetEntity {
         EventHasBlockedStreetEntity that = (EventHasBlockedStreetEntity) o;
 
         if (eventHasBlockedStreetId != that.eventHasBlockedStreetId) return false;
+        if (eventId != that.eventId) return false;
+        if (blockedStreetId != that.blockedStreetId) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        return eventHasBlockedStreetId;
+        int result = eventHasBlockedStreetId;
+        result = 31 * result + eventId;
+        result = 31 * result + blockedStreetId;
+        return result;
     }
 }

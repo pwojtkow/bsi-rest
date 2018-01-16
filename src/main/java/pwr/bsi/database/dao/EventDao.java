@@ -2,6 +2,7 @@ package pwr.bsi.database.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import pwr.bsi.database.dao.interfaces.IEventDao;
 import pwr.bsi.database.entities.EventEntity;
 
 import javax.persistence.EntityManager;
@@ -30,5 +31,18 @@ public class EventDao implements IEventDao {
     @Override
     public EventEntity getOne(Integer id) {
         return entityManager.find(EventEntity.class, id);
+    }
+
+    @Override
+    public EventEntity create(EventEntity event) {
+        entityManager.persist(event);
+        return event;
+    }
+
+    @Override
+    public EventEntity delete(Integer id) {
+        EventEntity entityToRemove = getOne(id);
+        entityManager.remove(entityToRemove);
+        return entityToRemove;
     }
 }

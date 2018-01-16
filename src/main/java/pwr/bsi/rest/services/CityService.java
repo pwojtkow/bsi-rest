@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pwr.bsi.database.dao.CityDao;
 import pwr.bsi.database.entities.CityEntity;
+import pwr.bsi.rest.services.interfaces.ICityService;
 
 import java.util.List;
 

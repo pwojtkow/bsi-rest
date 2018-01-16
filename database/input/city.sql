@@ -1,5 +1,5 @@
-INSERT INTO city VALUES (1,'Wroclaw');
-INSERT INTO city VALUES (2,'Radom');
-INSERT INTO city VALUES (3,'Rzeszow');
-INSERT INTO city VALUES (4,'Sanok');
-INSERT INTO city VALUES (5,'Lublin');
+INSERT INTO c VALUES (1,'Wroclaw');
+INSERT INTO c VALUES (2,'Radom');
+INSERT INTO c VALUES (3,'Rzeszow');
+INSERT INTO c VALUES (4,'Sanok');
+INSERT INTO c VALUES (5,'Lublin');

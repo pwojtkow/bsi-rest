@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import pwr.bsi.database.entities.CityEntity;
-import pwr.bsi.rest.services.CityService;
+import pwr.bsi.rest.services.interfaces.ICityService;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class CityController {
 
     @Autowired
-    CityService service;
+    ICityService service;
 
     @RequestMapping(path = "/all", method = RequestMethod.GET)
     public ResponseEntity<List<CityEntity>> getAllEvents() {

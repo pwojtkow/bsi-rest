@@ -1,4 +1,4 @@
-package pwr.bsi.rest.services;
+package pwr.bsi.rest.services.interfaces;
 
 import pwr.bsi.database.entities.CityEntity;
 

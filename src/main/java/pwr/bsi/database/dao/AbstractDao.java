@@ -2,6 +2,7 @@ package pwr.bsi.database.dao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import pwr.bsi.database.dao.interfaces.IDao;
 
 import java.io.Serializable;
 

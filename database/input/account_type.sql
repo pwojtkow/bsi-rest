@@ -1,3 +1,3 @@
-INSERT INTO account_type VALUES (1,'Admin');
-INSERT INTO account_type VALUES (2,'Moderator');
-INSERT INTO account_type VALUES (3,'User');
+INSERT INTO ACCOUNT_TYPEs VALUES (1,'Admin');
+INSERT INTO ACCOUNT_TYPEs VALUES (2,'Moderator');
+INSERT INTO ACCOUNT_TYPEs VALUES (3,'User');
