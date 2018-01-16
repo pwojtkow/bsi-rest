@@ -3,7 +3,7 @@ package pwr.bsi.database.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "SERVICE_TYPE", schema = "eventsDevDB", catalog = "")
+@Table(name = "service_type", schema = "eventsdevdb", catalog = "")
 public class ServiceTypeEntity {
     private int serviceTypeId;
     private String serviceName;

@@ -1,0 +1,16 @@
+Responses types developed :
+
+200 - ok
+204 - when response from db is empty
+400 - bad request
+404 - not found
+
+Events :
+
+/events/all GET
+/events/{id} GET
+
+Cities :
+
+/cities/all GET
+/cities/{id} GET

@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "BLOCKED_STREET", schema = "eventsDevDB", catalog = "")
+@Table(name = "blocked_street", schema = "eventsdevdb", catalog = "")
 public class BlockedStreetEntity {
     private int blockedStreetId;
 

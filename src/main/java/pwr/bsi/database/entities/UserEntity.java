@@ -3,7 +3,7 @@ package pwr.bsi.database.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USER", schema = "eventsDevDB", catalog = "")
+@Table(name = "user", schema = "eventsdevdb", catalog = "")
 public class UserEntity {
     private int userId;
     private String email;
@@ -11,6 +11,8 @@ public class UserEntity {
     private String login;
     private String adress;
     private Integer credibilityPoints;
+    private int cityId;
+    private int accountTypeId;
 
     @Id
     @Column(name = "User_id", nullable = false)
@@ -72,6 +74,26 @@ public class UserEntity {
         this.credibilityPoints = credibilityPoints;
     }
 
+    @Basic
+    @Column(name = "City_id", nullable = false)
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
+    @Basic
+    @Column(name = "Account_type_id", nullable = false)
+    public int getAccountTypeId() {
+        return accountTypeId;
+    }
+
+    public void setAccountTypeId(int accountTypeId) {
+        this.accountTypeId = accountTypeId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -80,6 +102,8 @@ public class UserEntity {
         UserEntity that = (UserEntity) o;
 
         if (userId != that.userId) return false;
+        if (cityId != that.cityId) return false;
+        if (accountTypeId != that.accountTypeId) return false;
         if (email != null ? !email.equals(that.email) : that.email != null) return false;
         if (encPass != null ? !encPass.equals(that.encPass) : that.encPass != null) return false;
         if (login != null ? !login.equals(that.login) : that.login != null) return false;
@@ -98,6 +122,8 @@ public class UserEntity {
         result = 31 * result + (login != null ? login.hashCode() : 0);
         result = 31 * result + (adress != null ? adress.hashCode() : 0);
         result = 31 * result + (credibilityPoints != null ? credibilityPoints.hashCode() : 0);
+        result = 31 * result + cityId;
+        result = 31 * result + accountTypeId;
         return result;
     }
 }

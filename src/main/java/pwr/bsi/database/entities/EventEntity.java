@@ -1,16 +1,16 @@
 package pwr.bsi.database.entities;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Arrays;
 
 @Entity
-@Table(name = "EVENT", schema = "eventsDevDB", catalog = "")
+@Table(name = "event", schema = "eventsdevdb", catalog = "")
 public class EventEntity {
     private int eventId;
     private String eventName;
-    private Date startDate;
-    private Date endDate;
+    private Timestamp startDate;
+    private Timestamp endDate;
     private Integer contestantsNumber;
     private Integer position;
     private Integer radius;
@@ -39,21 +39,21 @@ public class EventEntity {
 
     @Basic
     @Column(name = "Start_date", nullable = false)
-    public Date getStartDate() {
+    public Timestamp getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(Timestamp startDate) {
         this.startDate = startDate;
     }
 
     @Basic
     @Column(name = "End_date", nullable = false)
-    public Date getEndDate() {
+    public Timestamp getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(Timestamp endDate) {
         this.endDate = endDate;
     }
 
